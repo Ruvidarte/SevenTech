@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
+/* Estilos Universales */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Viga', sans-serif;
+}
+:root {
+  --soft-blush: #1c1c1c;
+  --tropical-teal: #4d4291;
+}
+body {
+  background: var(--soft-blush);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*Estilo barra de navegacion*/
+.navbar {
+  background: var(--tropical-teal);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 961px) {
+  header,
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Logo */
+#navbar__logo img {
+  height: 50px;
+  margin: 0;
+  display: block;
+}
+
+#navbar__logo .material-symbols-outlined {
+  font-size: 4.25rem; 
+  color: #000;
+}
+
+.logo {
+  margin-right: 0.5rem;
+}
+
+main {
+  padding: 0 16px;
+  background: var(--soft-blush);
+  flex: 1 0 auto;
+}
+
+@media screen and (min-width: 961px) {
+  main {
+    padding: 0 40px;
+  }
+}
+
+/* Carousel principal */
+#carouselExample {
+  margin-bottom: 2.5rem;
+}
+.carousel-outer {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+#carouselExample .carousel-inner,
+#carouselExample .carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* Imagen fija movil */
+.mobile-hero {
+  display: none;
+}
+
+.mobile-hero__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Mostrar imagen fija y ocultar carousel en celular */
+@media screen and (max-width: 960px) {
+  #carouselExample {
+    display: none !important; 
+  }
+  .mobile-hero {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* NavBar */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  text-transform: uppercase;
+}
+
+.navbar__links:hover {
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 960px) {
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    height: 50vh;
+    z-index: -1;
+  }
+
+  .navbar__menu.active {
+    background: var(--tropical-teal);
+    top: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 70vh;
+    font-size: 1.6rem;
+  }
+
+  #navbar__logo {
+    padding-left: 25px;
+  }
+
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #000;
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar__toggle .bar {
+    display: block;
+    cursor: pointer;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+.logo {
+  margin-right: 0.5rem;
+}
+.cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Imagen grande "Elegí tu PC" */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.hero h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 10px black;
+}
+
+/* Contenedor de 5 cartas */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 95%;
+  margin: auto;
+}
+
+/* Cartas individuales */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.price {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #28a745;
+}
+.cards-container a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/*Responsive para celulares*/
+@media (max-width: 600px) {
+
+.hero {
+    height: 150px;
+  }
+
+.hero h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Cards en columna */
+.cards-container {
+    grid-template-columns: 1fr;
+}
+
+  /* Ajuste de las imagenes */
+.card img {
+    height: 180px;
+}
+}
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* Carrusel real */
+.mas-buscados {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 60px;
+  scrollbar-width: none;
+}
+
+.mas-buscados::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cards */
+.item {
+  flex: 0 0 320px;
+  background: #fff;
+  color: #28a745;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.btn-left { left: 8px; }
+.btn-right { right: 8px; }
+
+/*Ifreme Google Maps*/
+.mapa {
+  display: flex;
+  justify-content: center;
+}
+
+/*Footer*/
+.custom-footer {
+  background-color: #4d4291;
+  color: white;
+}
+
+.custom-footer a {
+  color: white;
+}
+
+.custom-footer a:hover {
+  color: #f0e5ff; 
+}
+
+.footer-copyright {
+  background-color: #222; 
+  color: white;
+}
+
+/* Banner En Movimiento */
+.banner-promo {
+    background-color: #7A22FF;
+    color: white;
+    font-size: 0.9rem;
+    overflow: hidden;
+    padding: 8px 0;
+    text-align: center;
+}
+
+.scrolling-text {
+    display: flex; 
+    animation: scroll-left 40s linear infinite;
+}
+
+.text-group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.message {
+    margin-right: 50px;
+    white-space: nowrap;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Reduce tamaño y velocidad en movil */
+@media (max-width: 768px) {
+    .banner-promo {
+        font-size: 0.8rem;
+    }
+    .scrolling-text {
+        animation-duration: 25s; 
+    }
+}
+
+/* Ajustes para movil */
+@media (max-width: 768px) {
+    .banner-static {
+        font-size: 0.9rem;
+        padding: 8px 0;
+    }
+}
+
+/*Columnas y Texto*/
+.welcome-bar {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-family: sans-serif;
+  position: static; 
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0; 
+}
+
+/*Telefono Logo*/
+.material-symbols-outlined {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: #ffffff;
+}
+
+/* Fuente Cards */
+.card h2 {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Contenedor del carrusel */
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.item {
+  flex: 0 0 auto;
+  height: 380px;
+  width: 85vw;
+  max-width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  scroll-snap-align: center;
+}
+
+/* Link card */
+.item-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagen */
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Texto */
+.item strong {
+  color: #1f2937;
+}
+
+/* Pc */
+@media (min-width: 768px) {
+  .carousel {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+  }
+
+  .item {
+    width: 180px;
+  }
+}
+
+  /* Los mas Buscado Linea Morada */
+  .title-wrapper {
+    margin-left: 10px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.underline {
+    width: auto;
+    height: 4px;
+    background-color: #7A22FF;
+    border-radius: 8px;
+    margin-top: 4px;
+}
+
+/* Los mas Buscados Anim */
+.item img {
+  transition: transform .3s ease;
+}
+.item:hover img {
+  transform: scale(1.05);
+}
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  padding: 16px;
+}
+
+.img-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Carrito */
+.cart-hover {
+  position: relative;
+}
+
+.cart-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Tooltip */
+.cart-tooltip {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none; 
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+/* PC */
+.cart-hover:hover .cart-tooltip {
+  opacity: 1;
+}
+
+/* Movil */
+.cart-hover.show-tooltip .cart-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+.carousel {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  padding: 10px 50px;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+/* Carrusel */
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 50px;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+/* Cards */
+.item {
+  flex: 0 0 320px;
+  background: #fff;
+  color: #28a745;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* Botones */
+.btn-left, .btn-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: #7A22FF;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.btn-left { left: 8px; }
+.btn-right { right: 8px; }
+
+/* Banner elegi tu pc */
+.banner-elegi h2 {
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
